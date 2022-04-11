@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "links",
+    "clusters"
+  ],
+  "properties": {
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "sameAs",
+              "suggestedSameAs",
+              "diffFrom"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "source",
+          "target"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "clusters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "sameAs",
+              "suggestedSameAs"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "cluster": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "source",
+          "target"
+        ],
+        "additionalProperties": true
+      }
+    }
+  }
+}

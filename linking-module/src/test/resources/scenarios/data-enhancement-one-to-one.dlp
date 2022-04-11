@@ -1,0 +1,1 @@
+sameAs(X,Y,7) :- coauthorAA(X,Y,1).

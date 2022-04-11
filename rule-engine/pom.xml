@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.abes.sudoqual</groupId>
+		<artifactId>sudoqual-framework</artifactId>
+		<version>2.10.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>rule-engine</artifactId>
+	<packaging>jar</packaging>
+	<name>fr.abes.sudoqual:rule-engine</name>
+
+	<description>This module provides a Datalog rule engine.</description>
+
+	<dependencies>
+        <dependency>
+            <groupId>fr.abes.sudoqual</groupId>
+            <artifactId>sudoqual-util</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>${commons-collections4.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${org-json.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.trove4j</groupId>
+			<artifactId>trove4j</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.lirmm.marel</groupId>
+			<artifactId>AOCPoset</artifactId>
+			<version>1.0-PROVIDED</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.lirmm.graphik</groupId>
+			<artifactId>dlgp2-parser</artifactId>
+			<version>${dlgp2-parser.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jgrapht</groupId>
+			<artifactId>jgrapht-core</artifactId>
+			<version>${org.jgrapht.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit4.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+    </dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>AOCPoset-install</id>
+						<phase>initialize</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<groupId>fr.lirmm.marel</groupId>
+							<artifactId>AOCPoset</artifactId>
+							<version>1.0-PROVIDED</version>
+							<packaging>jar</packaging>
+							<file>${basedir}/lib/AOCPosetBuilder.jar</file>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.11.0</version>
+				<configuration>
+					<excludes>
+			            <exclude>**/fr/abes/sudoqual/rule_engine/impl/**/*.java</exclude>
+			        </excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,33 @@
+{
+   "clusters":[
+      {
+         "source":"sudoc:234881038-1",
+         "type":"sameAs",
+         "cluster":"_:cluster1"
+      },
+      {
+         "source":"sudoc:234882352-1",
+         "type":"sameAs",
+         "cluster":"_:cluster1"
+      }
+   ],
+   "links":[
+      {
+         "source":"sudoc:234881828-2",
+         "type":"sameAs",
+         "target":"idref:23488035X"
+      },
+      {
+         "source":"sudoc:234881038-1",
+         "type":"sameAs",
+         "target":"idref:23488035X"
+      },
+      {
+         "source":"sudoc:234882352-1",
+         "type":"sameAs",
+         "target":"idref:23488035X"
+      }
+   ]
+}
+
+

@@ -1,0 +1,379 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.abes.sudoqual</groupId>
+	<artifactId>sudoqual-framework</artifactId>
+	<version>2.10.1-SNAPSHOT</version>
+	<name>fr.abes.sudoqual:sudoqual-framework</name>
+	<packaging>pom</packaging>
+
+	<inceptionYear>2018</inceptionYear>
+
+	<organization>
+		<name>ABES</name>
+		<url>http://abes.fr/</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<name>Clément SIPIETER</name>
+			<email>clement@6pi.fr</email>
+			<organization>6π.tech</organization>
+		</developer>
+	</developers>
+
+	<properties>
+		<release.javadoc.root.path>javadocSudoqualFramework/</release.javadoc.root.path>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<!-- dependency versions -->
+		<dlgp2-parser.version>2.1.1</dlgp2-parser.version>
+		<commons-lang3.version>3.8.1</commons-lang3.version>
+		<commons-collections4.version>4.2</commons-collections4.version>
+		<commons-io.version>2.5</commons-io.version>
+		<commons-text.version>1.6</commons-text.version>
+		<org-json.version>20180813</org-json.version>
+		<everit-json-schema.version>1.10.0</everit-json-schema.version>
+		<guava.version>26.0-jre</guava.version>
+		<org.jgrapht.version>1.3.1</org.jgrapht.version>
+		<junit4.version>4.12</junit4.version>
+		<junit5.version>5.3.1</junit5.version>
+	</properties>
+
+    <modules>
+        <module>sudoqual-api</module>
+        <module>sudoqual-modules</module>
+		<module>sudoqual-util</module>
+		<module>rule-engine</module>
+		<module>linking-module</module>
+		<module>cli</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.che.core</groupId>
+			<artifactId>che-core-commons-annotations</artifactId>
+			<version>6.14.2</version>
+		</dependency>
+		<!-- optional -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+    <scm>
+        <connection>scm:git:https://github.com/abes-esr/sudoqual-framework.git</connection>
+        <tag>HEAD</tag>
+    </scm>
+
+	<distributionManagement>
+		<repository>
+			<id>artifactory-release</id>
+			<url>https://artifactory.abes.fr/artifactory/libs-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>artifactory-snapshot</id>
+			<url>https://artifactory.abes.fr/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>artifactory-public</id>
+			<name>artifactory-public</name>
+			<url>https://artifactory.abes.fr/artifactory/maven-public/</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>artifactory-public</id>
+			<name>artifactory-public</name>
+			<url>https://artifactory.abes.fr/artifactory/maven-public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<build>
+		<pluginManagement>
+			<!-- lock down plugins versions to avoid using Maven defaults -->
+			<plugins>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+					<configuration>
+						<source>${maven.compiler.source}</source>
+						<target>${maven.compiler.target}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>3.1.1</version>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<additionalparam>${javadoc.opts}</additionalparam>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.22.1</version>
+					<!-- fix issue : https://github.com/wrk-fmd/CoCeSo/issues/43 -->
+					<configuration>
+				                <useSystemClassLoader>false</useSystemClassLoader>
+				 	</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.5.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+				</plugin>
+
+				<!--This plugin's configuration is used to store Eclipse m2e settings
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.codehaus.mojo</groupId>
+										<artifactId>aspectj-maven-plugin</artifactId>
+										<versionRange>[1.0,)</versionRange>
+										<goals>
+											<goal>test-compile</goal>
+											<goal>compile</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-install-plugin
+										</artifactId>
+										<versionRange>
+											[2.5,)
+										</versionRange>
+										<goals>
+											<goal>install-file</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<execute>
+											<runOnIncremental>false</runOnIncremental>
+										</execute>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.11.0</version>
+				<configuration>
+					<failOnViolation>true</failOnViolation>
+					<failurePriority>5</failurePriority>
+					<targetDirectory>${project.build.directory}</targetDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.3</version>
+				<configuration>
+					<append>true</append>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<profiles>
+		<profile>
+			<!--
+					Name of the Maven build profile.
+					Used in project's Jenkins job configuration.
+				-->
+			<id>releaseDocumentation</id>
+			<build>
+				<plugins>
+					<!--
+							In preparation of site generation, extract the release
+							version number to a maven property.
+							Performed during pre-site phase.
+						-->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<version>1.8</version>
+						<executions>
+							<execution>
+								<phase>pre-site</phase>
+								<id>regex-property</id>
+								<goals>
+									<goal>regex-property</goal>
+								</goals>
+								<configuration>
+									<name>release_version</name>
+									<value>${project.version}</value>
+									<regex>-SNAPSHOT</regex>
+									<replacement />
+									<failIfNoMatch>false</failIfNoMatch>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<!--
+							JavaDoc generation.
+							JavaDoc is generated during pre-site phase.
+						-->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.9.1</version>
+						<executions>
+							<execution>
+								<id>javadoc</id>
+								<phase>pre-site</phase>
+								<goals>
+									<goal>javadoc</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>aggregate</id>
+								<phase>site</phase>
+								<goals>
+									<goal>aggregate</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<show>private</show>
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
+					</plugin>
+					<!--
+							Copy JavaDoc to publish directory.
+							Performed during the site phase.
+							If changing the phase, make sure that copying the
+							documentation is performed after having generated
+							the JavaDoc.
+						-->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>2.6</version>
+						<executions>
+							<execution>
+								<id>copy-resources</id>
+								<phase>site</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<generateProjectInfo>false</generateProjectInfo>
+									<generateReports>false</generateReports>
+									<outputDirectory>${release.javadoc.root.path}${project.artifactId}-${release_version}/</outputDirectory>
+									<resources>
+										<resource>
+											<directory>${project.build.directory}/site/</directory>
+											<filtering>true</filtering>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+			<!--
+					Include this section to disable, or configure, generation
+					of project info report(s).
+					In this case, all project info reports have been disabled.
+				-->
+			<reporting>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-project-info-reports-plugin</artifactId>
+						<version>2.7</version>
+						<reportSets>
+							<reportSet>
+								<reports />
+							</reportSet>
+						</reportSets>
+					</plugin>
+				</plugins>
+			</reporting>
+		</profile>
+	</profiles>
+
+</project>

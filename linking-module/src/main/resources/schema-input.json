@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "linking module input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "scenario",
+    "sources",
+    "targets",
+    "features"
+  ],
+  "properties": {
+    "scenario": {"type": "string"},
+    "options": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "debug": {"type": "boolean"},
+        "validatedSameAsThreshold": {"type": "integer"},
+        "suggestedSameAsThreshold": {"type": "integer"},
+        "validatedDiffFromThreshold": {"type": "integer"},
+        "suggestedEnabled": {"type": "boolean"},
+        "keepOnlyBestSuggestions": {"type": "boolean"},
+        "exportCriterionValues": {"type": "boolean"},
+        "dataValidationEnabled": {"type": "boolean"}
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "targets": {
+      "oneOf" : [
+        {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        {
+          "enum": ["sources"]
+        }
+      ]
+    },
+    "supports": {
+      "oneOf" : [
+        {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        {
+          "enum": ["sources", "targets"]
+        }
+       ]
+    },
+    "safeLinks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {"type": "string"},
+          "source": {"type": "string"},
+          "target": {"type": "string"}
+        },
+        "required": [
+          "type",
+          "source",
+          "target"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "features": {
+      "type": "object"
+    },
+    "criterionValues": {
+      "type": "array",
+      "items": {
+        "oneOf" : [
+          {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "source": {"type": "string"},
+              "target": {"type": "string"},
+              "value": {"type": "integer"}
+            },
+            "required": [
+              "name",
+              "source",
+              "target",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "reference": {"type": "string"},
+              "value": {"type": "boolean"}
+            },
+            "required": [
+              "name",
+              "reference",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "initialLinks": {
+		"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"type": {
+						"enum": [
+							"sameAs",
+							"diffFrom"
+						]
+					},
+					"source": {
+						"type": "string"
+					},
+					"target": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"type",
+					"source",
+					"target"
+				],
+				"additionalProperties": false
+			}
+	}
+  }
+}

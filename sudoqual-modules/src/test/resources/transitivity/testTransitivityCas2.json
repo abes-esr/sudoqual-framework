@@ -1,0 +1,30 @@
+{
+    "targets": ["idref:76895643X", "idref:386956730"],
+   "links":[
+      {
+         "source":"sudoc:234881828-2",
+         "type":"sameAs",
+         "target":"idref:76895643X"
+      },
+      {
+         "source":"sudoc:209674321-1",
+         "type":"sameAs",
+         "target":"idref:386956730"
+      },
+      {
+         "source":"sudoc:234881828-2",
+         "type":"sameAs",
+         "cluster":"_:cluster1"
+      },
+      {
+         "source":"sudoc:209674321-1",
+         "type":"sameAs",
+         "cluster":"_:cluster1"
+      }
+   ],
+   looksForLinks:[
+   {"from":"target",to:"target"}
+   ]
+}
+
+

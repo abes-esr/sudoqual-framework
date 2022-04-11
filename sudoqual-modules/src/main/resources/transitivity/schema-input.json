@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "definitions": {
+    "reference": {
+      "type": "string"
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "sameAs",
+              "suggestedSameAs",
+              "diffFrom"
+            ]
+          },
+          "source": {
+            "$ref": "#/definitions/reference"
+          },
+          "target": {
+            "$ref": "#/definitions/reference"
+          },
+          "cluster": {
+            "$ref": "#/definitions/reference"
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "type",
+              "source",
+              "target"
+            ]
+          },
+          {
+            "required": [
+              "type",
+              "source",
+              "cluster"
+            ]
+          },
+          {
+            "required": [
+              "type",
+              "target",
+              "cluster"
+            ]
+          }
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": true,
+  "properties": {
+    "links": {
+      "$ref": "#/definitions/links"
+    },
+    "looksForLinks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "enum": [
+              "source",
+              "target",
+              "cluster"
+            ]
+          },
+          "to": {
+            "enum": [
+              "source",
+              "target",
+              "cluster"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

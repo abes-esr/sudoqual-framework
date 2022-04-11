@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "linking module output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "metadata",
+    "computedLinks"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "scenario"
+      ],
+      "properties": {
+        "version-framework": {"type": "string"},
+        "version-scenario": {"type": "string"},
+        "scenario": {"type": "string"},
+        "options": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "computedLinks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {"enum": ["sameAs", "suggestedSameAs", "diffFrom"]},
+          "source": {"type": "string"},
+          "target": {"type": "string"},
+          "why": {
+            "type": "object"
+          },
+          "confidence": {"anyOf": [{"type": "integer"},{"type": "string"}]},
+          "step": {"type": "integer"}
+        },
+        "required": [
+          "type",
+          "source",
+          "target",
+          "confidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "criterionValues": {
+      "type": "array",
+            "items": {
+        "oneOf" : [
+          {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "source": {"type": "string"},
+              "target": {"type": "string"},
+              "value": {"type": "integer"}
+            },
+            "required": [
+              "name",
+              "source",
+              "target",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "reference": {"type": "string"},
+              "value": {"type": "boolean"}
+            },
+            "required": [
+              "name",
+              "reference",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "debug": {"type": "object"}
+  }
+}

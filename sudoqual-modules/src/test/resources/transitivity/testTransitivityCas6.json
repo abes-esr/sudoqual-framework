@@ -1,0 +1,25 @@
+{
+    "targets": ["idref:486956734","idref:668956432","idref:333408762"],
+   "links":[
+      {
+         "target":"idref:486956734",
+         "type":"sameAs",
+         "cluster":"_:cluster1"
+      },
+      {
+         "target":"idref:668956432",
+         "type":"sameAs",
+         "cluster":"_:cluster1"
+      },
+      {
+         "target":"idref:333408762",
+         "type":"sameAs",
+         "cluster":"_:cluster1"
+      }
+   ],
+   "looksForLinks":[
+   {"from":"target","to":"target"}
+   ]
+}
+
+

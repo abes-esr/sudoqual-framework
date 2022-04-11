@@ -1,0 +1,138 @@
+{
+   "clusters":[
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/155190075-1",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/052371034-1",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/118796046-2",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/105694924-2",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/07748343X-2",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/076339653-2",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/113378742-2",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/110586905-2",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/076073106-2",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/149344880-2",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/129967874-2",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/111778492-2",
+           "type": "sameAs"
+       },
+       {
+           "cluster": "_:cluster1",
+           "source": "http://www.sudoc.abes.fr/076362477-2",
+           "type": "sameAs"
+       }
+   ],
+   "links":[
+       {
+           "source": "http://www.sudoc.abes.fr/155190075-1",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/076073262/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/052371034-1",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/051626365/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/118796046-2",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/076073262/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/076339653-2",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/051626365/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/113378742-2",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/076073262/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/110586905-2",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/051626365/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/105694924-2",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/076073262/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/076073106-2",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/051626365/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/07748343X-2",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/076073262/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/129967874-2",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/051626365/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/111778492-2",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/076073262/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/076362477-2",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/051626365/id"
+       },
+       {
+           "source": "http://www.sudoc.abes.fr/149344880-2",
+           "type": "sameAs",
+           "target": "http://www.idref.fr/076073262/id"
+       }
+       ]
+}
+
+

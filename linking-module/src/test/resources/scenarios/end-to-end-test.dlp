@@ -1,0 +1,1 @@
+sameAs(X,Y,7) :- name(X,Y,1).

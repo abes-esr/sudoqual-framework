@@ -1,0 +1,25 @@
+{
+    "targets": ["idref:23488035X", "idref:186956730"],
+   "links":[
+      {
+         "source":"sudoc:234881828-2",
+         "type":"sameAs",
+         "target":"idref:23488035X"
+      },
+      {
+         "cluster":"_:cluster1",
+         "type":"sameAs",
+         "target":"idref:186956730"
+      },
+      {
+         "source":"sudoc:234881828-2",
+         "type":"sameAs",
+         "cluster":"_:cluster1"
+      }
+   ],
+   "looksForLinks":[
+   {"from":"target","to":"target"}
+   ]
+}
+
+

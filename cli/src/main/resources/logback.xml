@@ -1,0 +1,15 @@
+<configuration>
+  <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+
+  <appender name="STDERR" class="ch.qos.logback.core.ConsoleAppender">
+    <target>System.err</target>
+    <withJansi>true</withJansi> 
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] [%highlight(%level)] %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="WARN">
+    <appender-ref ref="STDERR" />
+  </root>
+</configuration>

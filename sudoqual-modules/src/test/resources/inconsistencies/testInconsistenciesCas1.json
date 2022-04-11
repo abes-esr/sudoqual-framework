@@ -1,0 +1,31 @@
+{
+   "computedLinks":[
+     {
+         "source":"sudoc:Z",
+         "type":"sameAs",
+         "target":"idref:W"
+      },
+      {
+         "source":"sudoc:A",
+         "type":"sameAs",
+         "target":"idref:B"
+      },
+      {
+         "cluster":"_:C1",
+         "type":"sameAs",
+         "target":"idref:C"
+      },
+      {
+         "source":"sudoc:A",
+         "type":"diffFrom",
+         "target":"idref:C"
+      },
+      {
+         "source":"sudoc:A",
+         "type":"sameAs",
+         "cluster":"_:C1"
+      }
+   ]
+}
+
+

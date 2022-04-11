@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "diagnostic output",
+  "type": "object",
+  "definitions": {
+    "targetWithWhy": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "integer"
+        },
+        "why": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "target"
+      ]
+    }
+  },
+  "properties": {
+    "diagnostic": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "initialLink": {
+            "type": "string"
+          },
+          "computedLink": {
+            "$ref": "#/definitions/targetWithWhy"
+          },
+          "suggestedLinks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/targetWithWhy"
+            }
+          },
+          "impossibleLinks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/targetWithWhy"
+            }
+          },
+          "case": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 12
+          },
+          "status": {
+            "enum": [
+              "validatedLink",
+              "doubtfulLink",
+              "missingLink",
+              "almostValidatedLink",
+              "erroneousLink"
+            ]
+          }
+        },
+        "required": [
+          "source",
+          "case",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "diagnostic"
+  ],
+  "additionalProperties": false
+}

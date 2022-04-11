@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.abes.sudoqual</groupId>
+		<artifactId>sudoqual-framework</artifactId>
+		<version>2.10.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>cli</artifactId>
+	<name>SudoQual CLI</name>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>fr.abes.sudoqual</groupId>
+			<artifactId>linking-module</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.abes.sudoqual</groupId>
+			<artifactId>sudoqual-modules</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.beust</groupId>
+			<artifactId>jcommander</artifactId>
+			<version>1.72</version>
+		</dependency>
+
+		<!-- Support for ANSI colors on Windows -->
+		<dependency>
+			<groupId>org.fusesource.jansi</groupId>
+			<artifactId>jansi</artifactId>
+			<version>1.18</version>
+		</dependency>
+
+    </dependencies>
+
+</project>

@@ -1,0 +1,2 @@
+sameAs(X,Y,7) :- name(X,Y,1).
+sameAs(X,Y,2) :- alwaysCriterion(X,Y,1).
