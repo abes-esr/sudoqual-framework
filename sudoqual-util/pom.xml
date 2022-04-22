@@ -20,8 +20,8 @@
 			<version>${org-json.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.everit.json</groupId>
-			<artifactId>org.everit.json.schema</artifactId>
+			<groupId>com.github.erosb</groupId>
+			<artifactId>everit-json-schema</artifactId>
 			<version>${everit-json-schema.version}</version>
 		</dependency>
         <dependency> <!-- Fix an runtime error (java.lang.NoClassDefFoundError: com/damnhandy/uri/template/MalformedUriTemplateException) ! I don't known who call it. -->

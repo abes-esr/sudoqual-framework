@@ -45,14 +45,6 @@
 		</dependency>
 	</dependencies>
 
-	<repositories>
-		<repository>
-			<!-- provides  com.github.everit-org.json-schema/org.everit.json.schema -->
-			<id>jitpack.io</id>
-			<url>https://jitpack.io</url>
-		</repository>
-	</repositories>
-
 	<build>
 		<resources>
 			<resource>
