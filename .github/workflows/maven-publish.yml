@@ -74,13 +74,12 @@ jobs:
             git merge $CURRENT_GIT_BRANCH
             git push
 
-
-#      - name: 'Create the github release'
-        #        uses: softprops/action-gh-release@v1
-          #        with:
-          #          tag_name: ${{ github.event.inputs.releaseVersion }}
-          #          generate_release_notes: true
-      #          token: ${{ secrets.TOKEN_GITHUB_FOR_GITHUB_ACTION }}
+      - name: 'Create the github release'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.event.inputs.releaseVersion }}
+          generate_release_notes: true
+          token: ${{ secrets.TOKEN_GITHUB_FOR_GITHUB_ACTION }}
 
       - name: Set up Maven Central Repository
         uses: actions/setup-java@v3
