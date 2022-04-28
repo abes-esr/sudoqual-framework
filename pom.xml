@@ -119,21 +119,6 @@
 		</repository>
 	</distributionManagement>
 
-	<repositories>
-		<repository>
-			<id>artifactory-public</id>
-			<name>artifactory-public</name>
-			<url>https://artifactory.abes.fr/artifactory/maven-public/</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>artifactory-public</id>
-			<name>artifactory-public</name>
-			<url>https://artifactory.abes.fr/artifactory/maven-public/</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<profiles>
 		<profile>
 			<id>toOSSRH</id>
