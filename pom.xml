@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>fr.abes.sudoqual</groupId>
 	<artifactId>sudoqual-framework</artifactId>
-	<version>2.10.4-SNAPSHOT</version>
+	<version>2.10.4</version>
 	<packaging>pom</packaging>
 	<name>fr.abes.sudoqual:sudoqual-framework</name>
 	<description>Framework Sudoqual</description>
@@ -83,7 +83,7 @@
         <connection>scm:git:https://github.com/abes-esr/sudoqual-framework.git</connection>
 		<developerConnection>scm:git:https://github.com/abes-esr/sudoqual-framework</developerConnection>
 		<url>https://github.com/abes-esr/sudoqual-framework</url>
-        <tag>HEAD</tag>
+        <tag>2.10.4</tag>
     </scm>
 
 	<build>
