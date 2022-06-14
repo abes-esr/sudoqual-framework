@@ -2336,12 +2336,12 @@ activer. Pour cela :
 -   Cliquez sur l'icône représentant trois livres si celle-ci est
     visible (en haut à droite).
 
-![Icône perspective QualinKa](./fig/plugin-icone-perspective.png)
+![image](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-005.png)
 
 -   Sinon cliquez sur l'icône « Open Perspective », Puis sélectionner
     « Qualinka ».
 
-![Icône « Open Perspective »](./fig/plugin-icone-open-perspective.png)
+![image](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-006.png)
 
 *Note: si « Qualinka », n'apparaît pas dans la* *liste des perspectives,
 cela signifie que le plugin n'est pas correctement installé* *ou que
