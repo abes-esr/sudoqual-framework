@@ -589,78 +589,7 @@ développés par l'Abes :
 La figure montre l'agencement actuelle de ces différentes parties. Les
 flèches en pointillé représentent des appels optionnels.
 
-``` plantuml
-'allow_mixing
-left to right direction
-hide members
-
-'%%%%%%%%%%%%%%%%%%%%%%%%%%
-' Style
-'%%%%%%%%%%%%%%%%%%%%%%%%%%
-skinparam component {
-  BorderColor Black
-}
-skinparam interface {
-  BorderColor Black
-}
-skinparam component {
-  BorderColor<<Abes>> DarkRed
-}
-
-'%%%%%%%%%%%%%%%%%%%%%%%%%%
-' MAIN
-'%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Actor User
-Actor Admin
-
-component Paprika <<Abes>>
-component "Module de partition initiale" <<Abes>> as init
-
-package SudoQual {
-  interface CLI
-  component "Client lourd" as RichClient
-  interface "Web Services" as WS
-
-  component "Linking Module" as LinkingModule
-  component "Rule Engine" as RuleEngine
-  component "Module de diagnostic" as diag
-  component "Module de clustering" as cluster
-
-}
-
-User --> RichClient
-User --> Paprika
-
-Admin --> RichClient
-
-Paprika -l-> "1" init
-Paprika --> "2" WS
-
-CLI --> LinkingModule
-CLI ..> diag
-CLI ..> cluster
-
-RichClient -l-> CLI
-
-WS --> LinkingModule
-WS ..> diag
-WS ..> cluster
-
-LinkingModule --> RuleEngine
-
-'%%%%%%%%%%%%%%%%%%%%%%%%%
-' Fix position
-'%%%%%%%%%%%%%%%%%%%%%%%%%
-
-'Admin -[hidden]-> WebUI
-'WebUI -[hidden]-> RichClient
-'WebUI -[hidden]-> WS
-'WebUI -[hidden]-> CLI
-
-```
-
-![image](https://user-images.githubusercontent.com/10114671/173532270-651e01ca-5715-4ee5-a624-90c6509ecff3.png)
+![image](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-000.png)
 
 ## Les différentes fonctionnalités
 
