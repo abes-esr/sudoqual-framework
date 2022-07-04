@@ -1935,7 +1935,7 @@ avec le nom du plugin et cliquer* *sur installer.*
 
 ![image](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/eclipse-plugin-json-logo.png) plugin JSON Editor Plugin
 
-![](./fig/eclipse-plugin-ansi-logo.png) plugin Ansi
+![image](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/eclipse-plugin-ansi-logo.png) plugin Ansi
 
 ### Installation du plugin
 
@@ -1965,12 +1965,12 @@ activer. Pour cela :
 -   Cliquez sur l'icône représentant trois livres si celle-ci est
     visible (en haut à droite).
 
-![image](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-005.png)
+![Icône perspective QualinKa](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/plugin-icone-perspective.png)
 
 -   Sinon cliquez sur l'icône « Open Perspective », Puis sélectionner
     « Qualinka ».
 
-![image](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-006.png)
+![Icône « Open Perspective »](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/plugin-icone-open-perspective.png)
 
 *Note: si « Qualinka », n'apparaît pas dans la* *liste des perspectives,
 cela signifie que le plugin n'est pas correctement installé* *ou que
@@ -1996,7 +1996,7 @@ une JVM \>= 9)*.
 
 À ce stade vous devriez voir :
 
-![Vue initiale](./fig/client-lourd-vue-initial.png)
+![Vue initiale](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-vue-initial.png)
 
 ### Mise à jour
 
@@ -2010,7 +2010,7 @@ en avez). Pour cela, faites :
 -   « Stash changes… »
 -   Entrez un message afin d'identifier les changements sauvegardés.
 
-![Stash changes](./fig/client-lourd-stash-changes.png)
+![Stash changes](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-stash-changes.png)
 
 Une fois cela fait, vous pouvez importer les mises à jour du projet.
 Pour cela, faites :
@@ -2020,7 +2020,7 @@ Pour cela, faites :
 -   puis « Pull » (sans "…")
 -   suivre les instructions
 
-![Pull remote changes](./fig/client-lourd-pull.png)
+![Pull remote changes](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-pull.png)
 
 Une fois les mise à jour du projet importer, vous pouvez éventuellement
 réappliquer vos modifications locales. Pour cela faites :
@@ -2030,11 +2030,11 @@ réappliquer vos modifications locales. Pour cela faites :
 -   « Stashes \> »
 -   sélectionner vos changements précédemment sauvegardés
 
-![Select stashed changes](./fig/client-lourd-select-stashed-changes.png)
+![Select stashed changes](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-select-stashed-changes.png)
 
 -   Cliquez sur l'icône « Apply Stashed Changes »
 
-![Apply stashed changes](./fig/client-lourd-apply-stashed-changes.png)
+![Apply stashed changes](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-apply-stashed-changes.png)
 
 Pour plus d'information sur la gestion des versions d'un projet,
 veuillez vous référer à la documentation du plugin Eclipse « EGit » :
