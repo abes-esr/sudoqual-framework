@@ -111,14 +111,14 @@ ensembles de *références d'entité*, un ensemble *source* et un ensemble
 -   **diffFrom**, la référence d'entité source et la référence d'entité
     cible ne peuvent pas représenter la même entité.
 
-Pour cela SudoQual s'appuie sur des ensembles d'**attributs** (nom,
+Pour cela SudoQual s'appuie sur des ensembles d'**attributs** (par exemple, pour le cas d'une entité de type personne : nom,
 prénom, date de naissance, date de publication, titre, éditeur,
 mots-clés…) rattachés à chaque *référence d'entité*. À partir de ces
-*attributs*, une configuration de SudoQual définit un ensemble de
+*attributs*, une configuration de SudoQual (un scénario TODO DEF OU HLIEN) définit un ensemble de
 **critères de comparaison** utilisables entre l'ensemble *source* et
 l'ensemble *cible*. Ces *critères* sont combinés à travers un **jeu de
 règles métiers**. Voici des exemples de règles métiers qu'il est
-possible de représenter :
+possible de représenter (++++cas de références d'entité de type personne) :
 
 -   « **SI** la **forme du nom** est proche **ET SI** un
     **co-contributeur** est homonyme **ET SI** un **titre** est assez
@@ -210,15 +210,12 @@ SudoQual est également composé de plusieurs interfaces utilisateurs :
 -   des web-services (accessible via des requêtes web — protocol
     « http »).
 
-L'environnement de SudoQual est finalement composé de logiciels
-développés par l'Abes :
+### Environnement élargi
+Pour être utilisé dans un contexte métier, SudoQual doit être intégré dans un environnement logiciel plus large. Il est nécessaire de disposer :
+- d'au moins un client pour exploiter les résultats de SudoQual (par exemple, l'Abes dispose de l'interface web paprika.idref.fr);
+- d'un module produisant les fichiers d'entrées de SudoQual (à l'Abes, ce module est appelé partition initiale).
 
--   paprika, une interface web capable d'afficher certains résultats de
-    SudoQual ;
--   le module de partition initiale, utilisé pour produire les fichiers
-    d'entrées de SudoQual.
-
-La figure montre l'agencement actuelle de ces différentes parties. Les
+La figure suivante montre l'agencement actuel de ces différentes parties. Les
 flèches en pointillé représentent des appels optionnels.
 
 ![image](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-000.png)
@@ -239,7 +236,7 @@ données d'entrées, il produit un ensemble de lien *sameAs*,
 références *cibles*.
 
 L'entrée et la sortie de ce service sont des structures JSON respectant
-les spécifications décrites en section .
+les spécifications décrites en section TODO 8.2.3 page 73 (Spécification entrée/sortie).
 
 1.  Exemple d'entrée
 
@@ -412,14 +409,14 @@ les spécifications décrites en section .
 ### diagnostic
 
 Le service `diagnostic` produit, à partir d'une sortie du service `link`
-et de la liste des « lien initial » (liens présents dans la base
+et de la liste des « lienx initiaux » (liens présents dans la base
 documentaire avant l'analyse faite avec SudoQual), un diagnostic des
-lien initial. Ce service n'est actuellement implémentée que pour le mode
-« many-to-one ».
+liens initiaux. Ce service n'est actuellement implémenté que pour le mode
+« many-to-one » TODO maj ??.
 
 L'entrée et la sortie de ce service sont des structures JSON respectant
-les spécifications décrites en section . La liste des diagnostics
-possibles est décrite en section .
+les spécifications décrites en section TODO 3 page 83 (spécifications entrées/sorties). La liste des diagnostics
+possibles est décrite en section TODO 7.5 page 63 (Module de diagnostic (many-to-one)).
 
 1.  Exemple d'entrée
 
@@ -608,18 +605,18 @@ service `link`, celles de la sortie à celles du service `diagnostic`.
 
 2.  Exemple de sortie
 
-    idem
+    idem TODO 2 page 17 (sortie diagnostic)
 
 ### cluster (Regroupement)
 
 Le service `cluster` est un enchaînement du service `link` (en mode
 *many-to-many* et avec l'ensemble *source* égal à l'ensemble *cible*) et
 du module de clustering. Il produit une liste de clusters (regroupement
-de référence.
+de références).
 
 L'entrée de ce service correspond à l'entrée du service `link`. La
 sortie est une structure JSON respectant les spécifications décrites en
-section .
+section 2 page 86. (Spécification des entrées/sorties).
 
 1.  Exemple d'entrée
 
@@ -700,7 +697,7 @@ par l'exécution de plusieurs modules spécifiques. Cette combinaison a
 ensemble de sources et de cibles données.
 
 L'entrée et la sortie de ce service sont des structures JSON respectant
-les spécifications décrites en section .
+les spécifications décrites en section 1 page 97 (spécifications entrées/sorties).
 
 1.  Exemple d'entrée
 
@@ -843,7 +840,7 @@ Le service `align` est prévu pour identifier les co-références entre
 deux référentiels d'autorités.
 
 L'entrée et la sortie de ce service sont des structures JSON respectant
-les spécifications décrites en section .
+les spécifications décrites en section TODO 8.4.2 page 105.
 
 1.  Exemple d'entrée
 
@@ -942,14 +939,14 @@ fonction *eval* n'est disponible que pour le mode de liage *many-to-one*
 mais pourrait être pensée pour les autres modes.
 
 Pour chaque référence appartenant à l'ensemble *source*, les liens
-produits sont évalué et classé dans un des quatres cas suivants :
+produits sont évalués et classés dans un des quatres cas suivants :
 
 -   good
 -   careful
 -   unsatisfactory
 -   bad
 
-Pour plus d'information sur ce mode, référez-vous à la section .
+Pour plus d'information sur ce mode, référez-vous à la section 7.6 page 6 (Évaluation (benchmark)).
 
 1.  Exemple d'entrée
 
@@ -1002,10 +999,10 @@ Pour plus d'information sur ce mode, référez-vous à la section .
 La fonction « compare » produit, à partir de deux sorties de SudoQual,
 une liste des différences entre les liens de la première sortie et les
 liens de la deuxième. Cette fonction est pensée afin de pouvoir étudier
-l'impact des modifications apportées à SudoQual ou sa configuration.
+l'impact des modifications apportées à SudoQual ou sa configuration (par exemple sur un scénario : modification d'un critère, d'un attribut, d'une règle...).
 
 La sortie de cette fonction n'est actuellement pas spécifié. Voici un
-exemple de sortie de la version actuel.
+exemple de sortie de la version actuelle.
 
 ``` text
 expected link http://www.sudoc.abes.fr/102222142-3 sameAs
@@ -1078,7 +1075,7 @@ du module de liage. Pour cela, utilisez l'option `--diagnostic` de la
 commande `link`.
 
 Les spécifications du fichier d'entrée sont ceux du mode « liage » (cf.
-section ), l'entrée de premier niveau `initialLinks` devient ici
+section TODO 8.2.3 page 73 Spécification entrée/sortie), l'entrée de premier niveau `initialLinks` devient ici
 obligatoire.
 
 ``` shell
@@ -1092,7 +1089,7 @@ module de liage. Pour cela, utilisez l'option `--clustering` de la
 commande `link`.
 
 Les spécifications du fichier d'entrée sont ceux du mode « liage » (cf.
-section ), le scénario utilisé doit être de type *many-to-many* et
+section TODO 1 page 73 Spécification entrée/sortie), le scénario utilisé doit être de type *many-to-many* et
 l'ensemble *source* doit être le même que l'ensemble *cible* (targets =
 sources).
 
@@ -1133,7 +1130,7 @@ $ java -jar sudoqual-cli.jar link --compare-with expected.json < input-file.json
 Le CLI permet également d'évaluer un fichier de benchmark via la command
 `eval` spécifiée en premier paramètre de la ligne de commande. Le
 fichier passé sur l'entrée standard ou via l'option `--input` doit
-correspondre aux spécifications présentées en section .
+correspondre aux spécifications présentées en section TODO 7.6 page 65 (Évaluation (benchmark)).
 
 ``` shell
 $ java -jar sudoqual-cli.jar eval < bench-file.json
@@ -1279,7 +1276,7 @@ calculé aucune donnée intermédiaire n'est conservé sur le serveur.
 Cependant, pour des questions d'optimisation des performances du service
 **link**, il est possible de demander au serveur de mettre en cache le
 résultat de l'évaluation des *filtres* et *critères* pour une
-réutilisation ultérieur (cf. section ) . Cela sera fait en affectant la
+réutilisation ultérieur (cf. section 5 page 36 - Utilisation du mode interactif) . Cela sera fait en affectant la
 valeur `true` à l'option `interactif`.
 
 ### Utilisation générale des web services
@@ -1657,7 +1654,7 @@ conforme à la rfc2616* *<https://tools.ietf.org/html/rfc2616>.*
     -   contenu : données d'entrée en JSON
 
     Les entrées/sorties correspondent à ceux du module de liage (cf.
-    section ), la partie contenu de la requête HTTP doit respecter le
+    section TODO 8.2.3 page 73), la partie contenu de la requête HTTP doit respecter le
     format et les contraintes de ce module. Toutefois, l' *option*
     supplémentaire suivante est disponible :
 
@@ -1681,7 +1678,7 @@ conforme à la rfc2616* *<https://tools.ietf.org/html/rfc2616>.*
     -   contenu : données d'entrée en JSON
 
     Les entrées/sorties correspondent à ceux du module de diagnostic
-    (voir section ), la partie contenu de la requête HTTP doit respecter
+    (voir section TODO 3 page 83), la partie contenu de la requête HTTP doit respecter
     le format et les contraintes de ce module.
 
     ``` text
@@ -1703,13 +1700,13 @@ conforme à la rfc2616* *<https://tools.ietf.org/html/rfc2616>.*
     -   Méthode : POST
     -   contenu : données d'entrée en JSON
 
-    L'entrée correspond à l'entrée du module de liage (cf. section ) où
+    L'entrée correspond à l'entrée du module de liage (cf. section TODO) où
     la propriété "initialLinks" devient obligatoire.
 
     L'*option* supplémentaire suivante est disponible :
 
     -   **interactif** de type *booléenne*: demande au serveur d'activer
-        le mode interactif, voir
+        le mode interactif, voir TODO
 
     ``` text
     POST [/<chemin_racine_de_l_application>]/complete
@@ -1936,7 +1933,7 @@ recommandés pour l'utilisation du Plugin Qualinka. Pour les* *installer,
 allez dans « Help » -\> « Eclipse Markeplace » puis faite une recherche
 avec le nom du plugin et cliquer* *sur installer.*
 
-![](./fig/eclipse-plugin-json-logo.png) plugin JSON Editor Plugin
+![image](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/eclipse-plugin-json-logo.png) plugin JSON Editor Plugin
 
 ![](./fig/eclipse-plugin-ansi-logo.png) plugin Ansi
 
