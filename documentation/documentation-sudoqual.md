@@ -2050,7 +2050,7 @@ Dans la vue « Project Explorer », vous devriez avoir votre projet
 *Note: si la vue « Project Explorer » n'est pas ouverte, vous pouvez
 l'ouvrir depuis « Window -\> Show view \> -\> Other… ».*
 
-![Vue projet](./fig/plugin-project-view.png)
+![Vue projet](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/plugin-project-view.png)
 
    
 **Éléments de la vue projet :**
@@ -2112,18 +2112,18 @@ L'exécution de « Qualinka » se fait depuis un fichier JSON (.json) :
     puis « Run as \> » ;
 
 ![Exécution depuis la « vue
-projet »](./fig/plugin-run-as-from-project-view.png)
+projet »](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/plugin-run-as-from-project-view.png)
 
 -   soit par un clique droit sur le contenu d'un fichier JSON ouvert
     dans l'éditeur de texte, puis « Run as \> ».
 
 ![Exécution depuis l'éditeur de
-texte](./fig/plugin-run-as-from-editor.png)
+texte](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/plugin-run-as-from-editor.png)
 
 Le résultat de l'exécution s'affiche dans la vue « Console ».
 
 ![Résultat de l'exécution de
-« Qualinka »](./fig/plugin-run-as-output.png)
+« Qualinka »](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/plugin-run-as-output.png)
 
 Pour plus d'information sur les modes d'exécution se référer à la
 section .
@@ -2135,35 +2135,35 @@ l'entrée « Rules » dans la vue projet et de double-cliquer sur le
 fichier à éditer. Le fichier s'ouvre dans la partie droite de
 l'application.
 
-![Éditeur de fichier de règles](./fig/client-lourd-edition-rules.png)
+![Éditeur de fichier de règles](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-edition-rules.png)
 
    
 **L'éditeur de règles proposent plusieurs fonctionnalités :**
 
 1.  une analyse syntaxique, mise en évidence des erreurs de syntaxe
 
-    ![](./fig/client-lourd-rules-syntaxe-error.png)    
+    ![](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-rules-syntaxe-error.png)    
 
 2.  une analyse sémantique, mise en évidence des erreurs de référence
     (critère, filtre ou dimension inexistant ; seuil du critère
     incorrect…)
 
-    ![](./fig/client-lourd-rules-sem-error.png)    
+    ![](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-rules-sem-error.png)    
 
 3.  l'affichage de la documentation au survol d'un critère ou filtre
 
-    ![](./fig/client-lourd-rules-doc.png)    
+    ![](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-rules-doc.png)    
 
 4.  autocomplétion des noms de critères, filtres et dimensions
     (CTRL+espace)
 
-    ![](./fig/client-lourd-rules-autocomplete.png)    
+    ![](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-rules-autocomplete.png)    
     Cette fonctionnalité est très importantes, car elle permet de
     connaître l'ensemble des prédicats disponibles. Pour cela, il suffit
     de commencer à écrire une règle (il faut avoir le curseur à un
     endroit où l'on attend un prédicat) puis faire "CTRL+espace".
 
-    ![](./fig/client-lourd-rules-autocomplete-allpred.png)    
+    ![](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-rules-autocomplete-allpred.png)    
 
 5.  raccourci d'accès au code Java d'un critère ou filtre (CTRL+clique
     gauche)
@@ -2204,7 +2204,7 @@ sur des données saisis à la volée.
         JSON)**.
 
     ![Fenêtre de saisie des
-    données](./fig/plugin-feature-exec-data-input.png)
+    données](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/plugin-feature-exec-data-input.png)
 
     *Note: la sélection du scénario n'a d'effet notable que si
     l'attribut testé* *présente une configuration différentes en
@@ -2367,7 +2367,7 @@ Pour ouvrir la page de configuration, faites :
 -   Sélectionner « Qualinka »
 
 ![Entrée du menu permettant d'accèder à la page de
-configuration](./fig/client-lourd-menu-properties.png)
+configuration](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-menu-properties.png)
 
 Cette page vous permet de configurer la « classe Java » principal ainsi
 que les différents dossiers accessibles à travers la vue projet. Enfin,
@@ -2375,13 +2375,13 @@ il permet de désactiver la vue projet « Qualinka » pour retrouver une
 vue projet « Java » classique (plutôt pour les informaticiens).
 
 ![Page de configuration des propriétés du plugin pour le
-projet](./fig/client-lourd-properties.png)
+projet](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/client-lourd-properties.png)
 
 # Fonctionnement & Paramétrage
 
 ## Grandes fonctionnalités requises
 
-Dans le but de répondre aux cas d'utilisation exprimés , SudoQual
+Dans le but de répondre aux cas d'utilisation exprimés TODO 2 page 6, SudoQual
 propose les grandes fonctionnalités suivantes :
 
 ### Alignement (one to one)
@@ -2486,49 +2486,10 @@ sur un ensemble de **règles métiers** telles que :
 
 Ces règles sont construites à partir d'un ensemble de **critères**
 (*criterions*) et de **filtres** (*filters*) qui eux mêmes utilisent un
-ensemble d'**feature** (*features*). La figure présente les différents
+ensemble d'**feature** (*features*). La figure TODO 18 présente les différents
 éléments du module de liage et leurs interactions.
 
-``` plantuml
-sprite $nothing {
-0000000000000000
-}
-
-together fixGroup {
-  Package LinkingModule {
-    rectangle loop as "linking loop" <<$nothing>>
-    rectangle Heuristic <<$nothing>>
-    () call
-  }
-  component RuleEngine
-}
-Package SudoQualConfiguration as "SudoQual Configuration" {
-    rectangle Features <<$nothing>>
-    rectangle Criterions <<$nothing>>
-    rectangle Filters <<$nothing>>
-    rectangle Rules <<$nothing>>
-  }
-
-Features -r-o Criterions
-Features -r-o Filters
-Criterions -r-o Rules
-Filters -r-o Rules
-
-
-Heuristic -r-> RuleEngine : call
-loop -r-> Heuristic : call
-call -r-> loop
-
-RuleEngine o-- Rules
-
-'FIX POSITION
-fixGroup .[hidden]. SudoQualConfiguration
-Heuristic .[hidden] Criterions
-loop .[hidden]. Features
-Criterions .[hidden]. Filters
-Rules .[hidden]. Heuristic
-
-```
+![Composants de module de liage](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-043.png)
 
 -   un **attribut** (*feature*) fournit une information concernant
     l'entité référencée. Par exemples : son nom, son prénom, sa date de
@@ -2647,7 +2608,7 @@ Le jeu de règles permet de combiner les critères pour définir les
 conditions suffisantes pour la déduction d'un lien *sameAs*,
 *suggestedSameAs* ou *diffFrom*.
 
-Pour plus d'information, consultez la section .
+Pour plus d'information, consultez la section TODO 7.3 page suivante.
 
 ### Scénarios
 
@@ -2902,7 +2863,7 @@ réalisation d'un cas d'usage.
 La syntaxe des règles acceptées correspond à une restriction de la
 syntaxe `Dlgp v2` (<http://graphik-team.github.io/graal/doc/dlgp>). Nous
 présentons ici la syntaxe de manière informelle, pour une définition
-formelle se référer à la section .
+formelle se référer à la section TODO 8.1.3 page 68.
 
 La syntaxe utilisée hérite de la syntaxe
 [datalog](https://en.wikipedia.org/wiki/Datalog). Les règles sont de la
@@ -3126,61 +3087,61 @@ Ce module attribue un diagnostic à chaque référence *source* considérée.
 Ce diagnostic prend la forme d'un **statut** et d'un identifiant de
 **cas**, parfois accompagnées d'informations complémentaires :
 
-initialLink:  
+**initialLink**:  
 indique la référence *cible* à laquelle est liée la référence *source*
 dans le jeu de données initial ;
 
-computedLink:  
+**computedLink**:  
 indique la référence *cible* identifiée par SudoQual ;
 
-suggestedLinks:  
+**suggestedLinks**:  
 indique un ensemble de référence *cibles* pour lequel SudoQual a trouvé
 des indices de co-référence mais pas assez fort pour en faire un lien
 sûr ;
 
-impossibleLinks:  
+**impossibleLinks**:  
 indique un ensemble de référence *cibles* identifiées comme
 **impossibles** par SudoQual.
 
 5 statuts peuvent être attribués à une référence source :
 
-validatedLink:  
+**validatedLink**:  
 le lien initiale est validé par SudoQual (cf. cas 1)
 
-almostValidatedLink:  
+**almostValidatedLink**:  
 le lien initiale est jugé fort probable par SudoQual (cf. cas 6)
 
-doubtfulLink:  
+**doubtfulLink**:  
 le lien initiale est jugé douteux par SudoQual (cf. cas 7 et 8)
 
-erroneousLink:  
+**erroneousLink**:  
 le lien initiale est jugé impossible par SudoQual (cf. cas 2, 3, 4 et 5)
 
-missingLink:  
+**missingLink**:  
 aucun lien n'était présent dans la base, SudoQual peut faire des
 propositions de correction (cf. cas 9, 10, 11 et 12)
 
    
-\*Détails des 12 cas\* :
+\*Détails des 12 cas\* : TODO pas clair
 
 Afin de définir ces 12 cas, nous nous appuyons sur les informations
 suivantes calculées par SudoQual pour une référence *source* donnée :
 
-initial link (AL) :  
+**initial link (AL) :**  
 la référence *cible* liée à la *source* dans la base ;
 
-computed link (CL) :  
+**computed link (CL) :**  
 la référence *cible* liée de façon sûre à la *source* par SudoQual ;
 
-suggested links (SL) :  
+**suggested links (SL) :**  
 l'ensemble de référence *cibles* suggérées comme liens possibles pour la
 *source* (cf. **suggestedLink**) ;
 
-impossible links (IL) :  
+**impossible links (IL) :**  
 l'ensemble de référence *cibles* jugées de façon sûre par SudoQual comme
 impossibles pour la *source* (cf. **impossibleLink**) ;
 
-candidate authorities (CA) :  
+**candidate authorities (CA) :**  
 l'ensemble de toutes les référence *cibles*.
 
 Par ailleurs, nous faisons l'hypothèse que SudoQual nous assure les
@@ -3669,38 +3630,7 @@ Galois).
     <http://www.lirmm.fr/AOC-poset-Builder/>). On obtient la structure
     suivante :
 
-    ``` plantuml
-    digraph G {
-    rankdir=BT; 
-
-    48 [shape=record,style=filled,label=<{ a1|<I>crit1<BR/>crit2<BR/>crit5<BR/>crit6<BR/></I>|sameAs(a1)}>]; 
-    50 [shape=record,style=filled,label=<{ a2|<I>crit3<BR/>crit4<BR/>crit5<BR/>crit6<BR/></I>|sameAs(a2)}>]; 
-    53 [shape=record,style=filled,label=<{ b1|<I>crit1<BR/>crit2<BR/>crit5<BR/>crit7<BR/></I>|sameAs(b1)}>]; 
-    56 [shape=record,style=filled,label=<{ b2|<I>crit3<BR/>crit4<BR/>crit5<BR/>crit7<BR/></I>|sameAs(b2)}>]; 
-
-    49 [shape=record,style=filled,fillcolor=lightblue,label=<{ a1 a2 |crit6<BR/><I>crit5</I>|}>]; 
-    52 [shape=record,style=filled,fillcolor=lightblue,label=<{ a1 b1 |crit1<BR/>crit2<BR/><I>crit5</I>|}>]; 
-    54 [shape=record,style=filled,fillcolor=lightblue,label=<{ a2 b2 |crit3<BR/>crit4<BR/><I>crit5</I>|}>]; 
-    55 [shape=record,style=filled,fillcolor=lightblue,label=<{ b1 b2 |crit7<BR/><I>crit5</I>|}>]; 
-
-    51 [shape=record,style=filled,fillcolor=lightblue,label="{<3> a1 a2
-     b1 b2|crit5\n|}"]; 
-
-    48 -> 49 
-    48 -> 52 
-    50 -> 49 
-    50 -> 54 
-    53 -> 52 
-    53 -> 55 
-    56 -> 54 
-    56 -> 55 
-    49 -> 51 
-    52 -> 51 
-    54 -> 51 
-    55 -> 51 
-    }
-
-    ```
+![AOCPoset de l’exemple 1](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-044.png)
 
     <span class="spurious-link"
     target="rule-engine1.pdf">*rule-engine1.pdf*</span>
@@ -3729,40 +3659,7 @@ Galois).
     [R7] sameAs(d) :- crit9. 
     ```
 
-    ``` plantuml
-    digraph G {
-    rankdir=BT; 
-
-    48 [shape=record,style=filled,label=<{ a1|<I>crit1<BR/>crit2<BR/>crit5<BR/>crit6<BR/></I>|sameAs(a1)}>]; 
-    50 [shape=record,style=filled,label=<{ a2|<I>crit3<BR/>crit4<BR/>crit5<BR/>crit6<BR/></I>|sameAs(a2)}>]; 
-    53 [shape=record,style=filled,label=<{ b1|<I>crit1<BR/>crit2<BR/>crit5<BR/>crit7<BR/></I>|sameAs(b1)}>]; 
-    56 [shape=record,style=filled,label=<{ b2|<I>crit3<BR/>crit4<BR/>crit5<BR/>crit7<BR/></I>|sameAs(b2)}>]; 
-    57 [shape=record,style=filled,label=<{ c |crit8<BR/><I>crit7<BR/></I>|sameAs(c)}>]; 
-    58 [shape=record,style=filled,label=<{ d |crit9<BR/>|sameAs(d)}>]; 
-
-    49 [shape=record,style=filled,fillcolor=lightblue,label=<{ a1 a2 |crit6<BR/><I>crit5</I>|}>]; 
-    52 [shape=record,style=filled,fillcolor=lightblue,label=<{ a1 b1 |crit1<BR/>crit2<BR/><I>crit5</I>|}>]; 
-    54 [shape=record,style=filled,fillcolor=lightblue,label=<{ a2 b2 |crit3<BR/>crit4<BR/><I>crit5</I>|}>]; 
-    55 [shape=record,style=filled,fillcolor=lightblue,label=<{ b1 b2 c |crit7<BR/>|}>]; 
-
-    51 [shape=record,style=filled,fillcolor=lightblue,label="{<3> a1 a2
-     b1 b2|crit5\n|}"]; 
-
-    48 -> 49 
-    48 -> 52 
-    50 -> 49 
-    50 -> 54 
-    53 -> 52 
-    53 -> 55 
-    56 -> 54 
-    56 -> 55 
-    49 -> 51 
-    52 -> 51 
-    54 -> 51 
-    57 -> 55
-    }
-
-    ```
+![AOCPoset de l’exemple 2](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-045.png)
 
     <span class="spurious-link"
     target="rule-engine2.pdf">*rule-engine2.pdf*</span>
@@ -4169,175 +4066,7 @@ interface LinkingModule extends Closeable {
 
 ### Architecture
 
-``` plantuml
-hide attribut
-
-'%%%%%%%%%%%% Rule Engine %%%%%%%%%%%%%%%%%
-
-package sudoqual.rule_engine {
-    interface Rule {
-      + getName() : String
-    }
-
-    interface Predicate {
-        + getName() : String
-    }
-
-    interface Filter {
-        + featureSet() : Set<String>
-        + check(JSONObject featureValues) : boolean
-    }
-
-    interface DiscretCompType {
-        + getMaxValue() : int
-        + getMinValue() : int
-        + hasNeutral() : boolean
-        + hasNever() : boolean
-        + hasAlways() : boolean
-    }
-    interface Criterion {
-        + getComparisonType() : DiscretCompType
-        + sourceFeatureSet() : Set<String>
-        + targetFeatureSet() : Set<String>
-        + compare(JSONObject first, JSONObject second) : int
-    }
-
-    interface Feature {
-        + getName() : String
-    }
-
-    interface ComputedFeature {
-      getRelatedFeatures() : Set<String>
-      compute(Collection<JSONObject> selectedData) : Object
-    }
-
-    interface UpdateableComputedFeature {
-      + update(Object oldValue, Collection<JsonObject> newlySelectedData) : Object
-    }
-
-    interface PreprocessedFeature {
-      + buildValue(Object rawValue) : Object
-    }
-
-    interface PreprocessedArrayFeature {
-      + buildElementValue(Object rawElementValue) : Object
-    }
-
-    interface RawFeature
-
-    interface Reference {
-      + getName() : String
-    }
-
-    interface RuleEngine {
-        + check(PredicateManager manager, String queryAtom, Reference source, Reference target) : RuleEngineResult
-        + check(PredicateManager manager, String queryAtom, Reference source, Reference target, int minThreshold) : RuleEngineResult
-    }
-
-    interface PredicateManager {
-      + getFeatureManager() : FeatureManager
-      + compare(Criterion criterion, Reference ref1, Reference ref2) : int
-      + check(Filter filter, Reference ref) : boolean
-      + cleanCriterions(Set<Reference> refSet, Set<Criterion> criterionSet) : void
-      + cleanFilters(Set<Reference> refSet, Set<Filters> filterSet) : void
-    }
-
-    interface FeatureManager {
-      + exist(Reference ref) : boolean
-      + exist(Reference ref, String featName) : boolean
-      + get(Reference ref) : JSONObject
-      + getFeaturesValue(Reference ref, Set<String> featureSet) : JSONObject
-      + updateComputedFeatures(Reference ref, Set<ComputedFeature> featSet, Set<Reference> newSameAs, Set<Reference> allSameAs)
-    }
-
-    Predicate <|-- Filter
-    Predicate <|-- Criterion
-    Feature <|-- ComputedFeature
-    Feature <|-- RawFeature
-    Feature <|-- PreprocessedFeature
-    PreprocessedFeature <|-- PreprocessedArrayFeature
-    ComputedFeature <|-- UpdateableComputedFeature
-
-    Criterion o-- "0..n" Feature
-    Filter o-- "0..n" Feature
-    RuleEngine o-- "0..n" Rule
-    RuleEngine o-- "0..n" Predicate
-    FeatureManager o-- "0..n" Feature
-    Criterion o-- "1" DiscretCompType
-
-    RuleEngine --> PredicateManager : call
-    PredicateManager --> FeatureManager : call
-}
-
-
-'%%%%%%%%%%%% LINKING MODULE %%%%%%%%%%%%%%%%%
-
-package sudoqual.linking_module {
-
-    interface LinkingModule {
-        + execute(String input) : String
-        + execute(InputStream input) : String
-        + execute(JSONObject input) : JSONObject
-        + setHeuristic(LinkHeuristic mode) : void
-    }
-
-    interface BusinessClassLoader {
-      + getFeatures() : Map<String, Feature>
-      + getFeature(String featureName) : Feature
-      + getPredicates() : Map<String, Feature>
-      + getPredicate(String predicateName) : Predicate
-    }
-
-    interface LinkingModuleAlgorithm {
-      + launch(PredicateManager manager, Collection<Reference> sources, Collection<Reference> targets,
-      Collection<Reference> supports, Collection<Link> initialLinks) : Set<Link>
-    }
-
-    interface LinkHeuristic {
-        + findLinks(PredicateManager store, RuleEngine engine, Reference source, 
-        Collection<Reference> targetList, int currentStep) : Collection<Link>
-        + getMode() : HeuristicMode
-    }
-
-    interface Scenario {
-      + getValidatedSameAsThreshold() : int
-      + getSuggestedSameAsThreshold() : int
-      + getValidatedDiffFromThreshold() : int
-      + isSuggestedEnabled() : boolean
-      + isSuggestedEvenIfValidatedEnabled() : boolean
-      + isExportCriterionValuesEnabled() : boolean
-      + getHeuristicMode() : String
-      + getRuleSetFileName() : String
-    }
-
-    interface HeuristicMode {
-      + isOneToOne() : boolean
-      + isOneToMany() : boolean
-      + isManyToOne() : boolean
-      + isManyToMany() : boolean
-    }
-
-    interface Link {
-        + getSource() : String
-        + getTarget() : String
-        + getWhy() : String
-        + getType() : String
-        + getConfidence() : int
-        + getStep() : int
-    }
-
-    LinkingModule -u-> BusinessClassLoader : call
-    LinkHeuristic -r-> Link : create
-    LinkHeuristic o-u- "1" HeuristicMode
-    LinkingModuleAlgorithm o-u- "1" Scenario
-
-    LinkingModule -r-> LinkingModuleAlgorithm : call
-    LinkingModuleAlgorithm -r-> LinkHeuristic : call
-}
-
-LinkingModule o-- "1..n" Reference
-LinkHeuristic --> RuleEngine : call
-```
+![](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-046.png)
 
 ### Attributs (`Feature`)
 
@@ -4460,47 +4189,7 @@ implémenter l'une des sous interfaces suivantes :
     il la traite et la marque comme "done" puis il se remet en attente
     d'une nouvelle tâche.
 
-    ``` plantuml
-    class Thread
-    class Consumer {
-
-      void run(Task)
-
-    } 
-    class LinkingModuleAlgorithm
-    class BlockingQueue
-    interface Task {
-     -volatile boolean isDone
-     -volatile boolean isCancelled
-     + STATUS exec()
-     + void done()
-     + boolean isDone()
-     + void cancel()
-     + boolean isCancelled()
-    } 
-    class UpdateComputedFeatureTask
-    class LinkingTask
-    class PoisonTask
-
-    Thread <|-- Consumer
-
-    Task <|.. UpdateComputedFeatureTask
-    Task <|.. LinkingTask
-    Task <|.. PoisonTask
-
-    QualityController o-u- "1" BlockingQueue 
-    Consumer o-r- "1" BlockingQueue 
-    Task "1..n" o-l-  BlockingQueue 
-
-    LinkingModuleAlgorithm -u->  LinkingTask : create
-    LinkingModuleAlgorithm -u->  UpdateComputedFeatureTask : create
-
-    'note "A group of Producers and Consumers work together \nby sharing the same BlockingQueue, Producers throw \nTasks to Consumers through the queue." as n1
-    'n1 .. Producer
-    'n1 .. Consumer
-    'n1 .. Task
-
-    ```
+![Modèle Producers/Consumers](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-047.png)
 
     Pour l'application de ce modèle à SudoQual, deux types de tâche ont
     été implémentées :
@@ -4694,7 +4383,7 @@ diagnostiquer les autres modes.
     1.  Spécification de l'entrée
 
         L'entrée de ce module est compatible avec la sortie du module de
-        liage .
+        liage TODO 2 page 76.
 
         ``` json
         {
@@ -4880,7 +4569,7 @@ source=target) en une liste de clusters.
     1.  Spécification de l'entrée
 
         L'entrée de ce module est compatible avec la sortie du module de
-        liage .
+        liage TODO 2 page 76.
 
         ``` json
         {
@@ -5033,7 +4722,7 @@ rattachées à cette ra appartiennent à un même cluster)
     -   si 1 cluster (C1) recouvre en partie (\>= X%) (suggestedSameAs
         si \>= Y%) les RCs reliées à une RA (RA1) alors on veut sortir
         le lien (C1 sameAs/suggestedSameAs RA1).
-
+TODO : reformuler ou supprimer 
     1.  cas à discuter (non implémentés)
 
         (on peut le faire par le module de transitivité) cas1  
