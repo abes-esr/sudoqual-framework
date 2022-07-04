@@ -4186,6 +4186,7 @@ implémenter l'une des sous interfaces suivantes :
 
 ![Modèle Producers/Consumers](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-047.png)
 
+    TODO pourquoi pas texte normal ci-dessous ?
     Pour l'application de ce modèle à SudoQual, deux types de tâche ont
     été implémentées :
 
