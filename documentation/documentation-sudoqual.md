@@ -3632,6 +3632,7 @@ Galois).
 
 ![AOCPoset de l’exemple 1](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-044.png)
 
+    TODO pourquoi pas texte normal ?
     Pour répondre à la requête `sameAs?`, il ne nous reste plus qu'à
     parcourir ce graphe de haut en bas (ici, il n'y a qu'un seul nœud
     possible pour débuter la descente mais c'est un cas particulier).
