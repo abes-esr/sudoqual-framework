@@ -3632,9 +3632,6 @@ Galois).
 
 ![AOCPoset de l’exemple 1](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-044.png)
 
-    <span class="spurious-link"
-    target="rule-engine1.pdf">*rule-engine1.pdf*</span>
-
     Pour répondre à la requête `sameAs?`, il ne nous reste plus qu'à
     parcourir ce graphe de haut en bas (ici, il n'y a qu'un seul nœud
     possible pour débuter la descente mais c'est un cas particulier).
@@ -3660,9 +3657,6 @@ Galois).
     ```
 
 ![AOCPoset de l’exemple 2](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-045.png)
-
-    <span class="spurious-link"
-    target="rule-engine2.pdf">*rule-engine2.pdf*</span>
 
     Dans cette exemple, on peut choisir de débuter la descente par le
     nœud "a1 a2 b1 b2", le nœud "b1 b2 c" ou le nœud "d".
