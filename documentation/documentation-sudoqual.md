@@ -4999,7 +4999,7 @@ contrainte sur le type de références liées.
 
 1.  Entrée
 
-    links  
+    **links** 
     liste de *sameAs*
 
     -   source/target
@@ -5098,7 +5098,7 @@ contrainte sur le type de références liées.
     un ensemble de liens *sameAs* produit (disjoint de l'ensemble
     d'entrée)
 
-    computedLinks  
+    **computedLinks**  
     ensemble de liens calculés
 
     -   oneOf
@@ -5231,7 +5231,7 @@ contrainte sur le type de références liées.
 5.  Important:
 
     le 19 septembre en présence en discussion avec Yann Nicolas et Aline
-    le-provost, il a était décider que si ce module venaint à engendrer
+    Le Provost, il a été décidé que si ce module venait à engendrer
     des violations de contraintes (RC/RA many-to-one) alors les liens
     sûrs en entrée ne doivent pas être remis en cause et les nouveaux
     liens générés doivent être downgradé en "suggestedSameAs".
@@ -5240,7 +5240,7 @@ contrainte sur le type de références liées.
 
 ## Services
 
-Seul les services les plus compliqués sont détailliés ici.
+Seul les services les plus compliqués sont détaillés ici.
 
 ### service « complete »
 
@@ -5586,232 +5586,21 @@ Seul les services les plus compliqués sont détailliés ici.
 
 3.  Implémentation visée
 
-    ``` plantuml
-    'allow_mixing
-    'left to right direction
-
-    @startuml
-    interface "input (Sudoc/Idref)" as input
-    interface "merge" as mergeDiag
-    component "RC/RA" as rcra
-    component "RC/RC" as rcrc
-    component "RA/RA" as rara
-    component "Détection MVT RC" as mvtRC
-    component "Diagnostic MANY_TO_ONE" as diagManyToOne
-    component "Transitivité(RA/RA)" as mergeDiagRA
-    component "inconsistencies RC ≠ RA" as conflict
-    component "cluster-ra-overlap + Transitivité(RC/RA + RA/RA)" as clusterAnalyser
-
-    component "constraint (many-to-one)" as constraint
-
-
-    interface "filter (rc/ra links)" as rcralinks
-    interface "filter (ra/ra links)" as filterRaRa
-    interface "filter (diffFrom)" as filterDiffFrom
-
-    input --> rcra
-    input --> rara
-    input --> rcrc
-
-    rara -[hidden]r- rcrc
-    rcrc -[hidden]r- rcra
-
-    rcrc --> [cluster]
-    'rcrc ..> merge
-
-    rcra --> clusterAnalyser
-
-    [cluster] --> [clusterAnalyser]
-    [clusterAnalyser] --> rcralinks
-
-    rcralinks --> constraint
-    constraint --> diagManyToOne
-    constraint --> mvtRC
-    'constraint ..> merge
-
-    rara --> mergeDiag
-    [clusterAnalyser] --> filterRaRa
-    filterRaRa --> mergeDiag
-    mvtRC --> mergeDiag
-    rcra --> filterDiffFrom
-
-    mergeDiag --> mergeDiagRA
-    constraint --> conflict
-    filterDiffFrom --> conflict
-    mergeDiagRA --> conflict
-
-    mergeDiagRA --> merge
-    conflict --> merge
-    diagManyToOne --> merge
-    [cluster] --> merge
-
-    merge --> output
-    @enduml
-    ```
+![Architecture visée du service « complete »](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-048.png)       
 
 4.  Implémentation actuelle
 
-    ``` plantuml
-    'allow_mixing
-    'left to right direction
-
-    @startuml
-    interface "input (Sudoc/Idref)" as input
-    component "RC/RA" as rcra
-    component "RC/RC" as rcrc
-    component "RA/RA" as rara
-    component "Diagnostic MANY_TO_ONE" as diagManyToOne
-    component "cluster/RA-overlap + Transitivité(RC/RA + RA/RA)" as clusterAnalyser
-    component "inconsistencies RC ≠ RA" as conflict
-    component "constraint (many-to-one)" as constraintManyToOne2
-
-
-    interface "filter (rc/ra links)" as rcralinks
-    interface "filter (ra/ra links)" as filterRaRa
-
-    input --> rcra
-    input --> rara
-    input --> rcrc
-    rara -[hidden]r- rcrc
-    rcrc -[hidden]r- rcra
-
-    rcra --> clusterAnalyser
-    rcrc --> [cluster]
-
-    cluster --> [clusterAnalyser]
-    clusterAnalyser --> rcralinks
-
-    rcralinks --> constraintManyToOne2
-    constraintManyToOne2 --> diagManyToOne
-
-    clusterAnalyser--> filterRaRa
-    filterRaRa --> mergeRa
-    rara --> mergeRa
-
-
-    constraintManyToOne2 --> conflict
-    mergeRa --> conflict
-
-    'constraintManyToOne2 ..> merge
-    'rcrc ..> merge
-    conflict --> merge
-    diagManyToOne --> merge
-    cluster --> merge
-    mergeRa --> merge
-
-    merge --> output
-    @enduml
-    ```
+![Architecture actuelle du service « complete »](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-049.png) 
 
 ### service « align »
 
 1.  Implémentation visée
 
-    ``` plantuml
-    'allow_mixing
-    'left to right direction
-
-    @startuml
-    interface "Referentiel source" as ref1
-    interface "Referentiel cible" as ref2
-    interface "filter (initialLinks + features)" as initLinkFilter
-    interface "merge" as mergeRef
-    component "Clean (RC/RA)" <<optional>>  as rcra1
-    component "Clean (RC/RA)" <<optional>> as rcra2
-    interface "merge (computedLinks)" as merge
-    interface "construct input RC/RC" as filterRC
-
-    component "RC/RC" as rcrc
-
-    interface "merge (initialLinks + computedLinks + features)" as merge1
-    interface "construct input SRA/SRA" as inputSRASRA
-    interface "construct input cluster/RA-overlap" as inputClusterRA
-    interface "merge" as lastMerge
-    interface "merge (computedLinks)" as merge3
-
-    component "constraint (one-to-one)" as align
-    component "Cluster/RA-overlap" as clusterAnalyser
-    component "SRA/SRA" as srasra
-    component "Transitivité (RA/RA)" as trans
-
-    ref1 --> rcra1
-    ref1 --> mergeRef
-    rcra1 --> merge
-    ref2 --> rcra2
-    ref2 --> mergeRef
-    rcra2 --> merge
-
-    mergeRef --> initLinkFilter
-
-    merge1 --> filterRC
-
-    filterRC --> [rcrc]
-    [rcrc] --> [cluster]
-
-    initLinkFilter --> merge1
-    merge --> merge1
-    merge1 --> inputClusterRA
-    merge1 --> inputSRASRA
-    inputSRASRA --> [srasra]
-    [cluster] --> inputClusterRA
-
-    inputClusterRA --> [clusterAnalyser]
-    [clusterAnalyser] --> [trans]
-    trans --> merge3
-    [srasra] --> merge3
-    merge3 --> [align]
-
-    [align] --> lastMerge
-    [cluster] ..> lastMerge
-
-    lastMerge --> output
-
-    @enduml
-    ```
+![Architecture visée du service « align »](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-050.png) 
 
 2.  Implémentation actuelle
 
-    ``` plantuml
-    'allow_mixing
-    'left to right direction
-
-    @startuml
-    interface "input" as merge1
-    interface "construct input SRA/SRA" as inputSRASRA
-    interface "construct input Cluster/RA-overlap" as inputClusterRA
-    interface "construct input RC/RC" as inputRCRC
-    interface "merge" as lastMerge
-    interface "merge (computedLinks)" as merge3
-
-    component "constraint (one-to-one)" as align
-    component "Cluster/RA-overlap" as clusterAnalyser
-    component "SRA/SRA" as srasra
-    component "Transitivité (RA/RA)" as trans
-
-    merge1 --> inputRCRC
-
-    inputRCRC --> [rcrc]
-    [rcrc] --> [cluster]
-
-    merge1 --> inputClusterRA
-    merge1 --> inputSRASRA
-    inputSRASRA --> [srasra]
-    [cluster] --> inputClusterRA
-
-    inputClusterRA --> [clusterAnalyser]
-    [clusterAnalyser] --> [trans]
-    trans --> merge3
-    [srasra] --> merge3
-    merge3 --> [align]
-
-    [align] --> lastMerge
-    [cluster] ..> lastMerge
-
-    lastMerge --> output
-
-    @enduml
-
-    ```
+![Architecture actuelle du service « align »](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-051.png) 
 
 ## Client Batch (CLI)
 
@@ -5890,52 +5679,52 @@ L'implémentation du CLI utilise le système de « command » de JCommander
 <http://www.jcommander.org/#_more_complex_syntaxes_commands>. Voici la
 liste des commandes existantes :
 
-link  
+**link**  
 appel le module de liage
 
-diagnostic  
+**diagnostic**  
 appel le module de diagnostic
 
-compare  
+**compare**  
 compare deux sorties du module de liage
 
-eval  
-exécute et évalue un fichier de benchmark (cf. )
+**eval**  
+exécute et évalue un fichier de benchmark (cf. TODO page 65)
 
 ## Client Lourd (RichClient)
 
 Le client lourd se présente sous la forme d'un plugin Eclipse. Les
 différents "points d'extension" utilisés sont les suivants :
 
-org.eclipse.core.resources.natures  
+**org.eclipse.core.resources.natures**  
 permet d'associé une "nature Qualinka" au projet ouvert, et donc
 d'activer les fonctionnalités du module.
 
-org.eclipse.core.expressions.propertyTesters  
+**org.eclipse.core.expressions.propertyTester** 
 permet de vérifier certaines propriétés sur des fichiers (type de
 fichier json, java… ? ; interface implémentée par les fichiers Java…)
 
-org.eclipse.ui.commands  
+**org.eclipse.ui.commands**  
 permet d'implémenter une commande pour l'ajout/suppression de la "nature
 Qualinka" au projet courant.
 
-org.eclipse.ui.menus  
+**org.eclipse.ui.menus**  
 permet de référencer la commande ci-dessus dans un menu.
 
-org.eclipse.ui.propertyPages  
+**org.eclipse.ui.propertyPages**  
 permet de proposer une page de configuration des propriétés du module
-pour le projet courant (cf. )
+pour le projet courant (cf. TODO 6.4.3 page 51)
 
-org.eclipse.core.runtime.preferences  
+**org.eclipse.core.runtime.preferences**  
 permet de sauvegarder les préférences.
 
-org.eclipse.ui.navigator.navigatorContent  
+**org.eclipse.ui.navigator.navigatorContent**  
 permet de personnaliser le contenu du "project explorer".
 
-org.eclipse.debug.ui.launchShortcuts  
+**org.eclipse.debug.ui.launchShortcuts**  
 permet l'ajout d'entrées dans le menu "run as \>".
 
-org.eclipse.ui.perspectives  
+**org.eclipse.ui.perspectives**  
 permet d'implémenter une "perspective Qualinka".
 
 La partie "éditeur de règles" s'appuie sur le framework `xtext`
@@ -6059,162 +5848,23 @@ La classe `DlgpValidator` permet une validation sémantique du fichier.
 
 Dans le sous projet `fr.abes.sudoqual.dlgp.ui`,
 
-DlgpUiModule  
-permet de déclarer les classes ci-dessous auprès du module.
+**DlgpUiModule** permet de déclarer les classes ci-dessous auprès du module.
 
-DlgpHighlightingConfiguration  
-permet d'enrichir la coloration syntaxique.
+**DlgpHighlightingConfiguration** permet d'enrichir la coloration syntaxique.
 
--   DlgpDocumentationProvider :: permet d'afficher la documentation d'un
+**DlgpDocumentationProvider** permet d'afficher la documentation d'un
     filtre ou critère au survol.
--   DlgpFoldingRegionProvider :: permet de masquer (replier) les
+**DlgpFoldingRegionProvider** permet de masquer (replier) les
     commentaires.
--   DlgpProposalProvider :: permet de gérer l'autocomplétion
--   
+**DlgpProposalProvider** permet de gérer l'autocomplétion
 
 ## Web Services
 
 ### Architecture
 
-Le diagramme de classes figure , décrit l'architecture des web services.
+Le diagramme de classes figure TODO page suivante, décrit l'architecture des web services.
 
-``` plantuml
-hide attribut
-
-'%%%%%%%%%%%% Rule Engine %%%%%%%%%%%%%%%%%
-package javax.servlet {
-  package http {
-    class HttpServlet {
-      # doGet() : void
-      # doPost() : void
-      # doPut() : void
-      # doDelete() : void
-    }
-  }
-
-  interface ServletContextListener {
-    + contextInitialized(event : ServletContextEvent)
-    + contextDestroyed(event : ServletContextEvent)
-  }
-}
-
-package sudoqual.ws {
-  class Context {
-    + {static} CONF: Configuration
-    + {static} CHARSET: Charset
-    + {static} CONTEXT_PATH : String
-    + {static} REAL_PATH : String
-    + {static} SERVER_INFO : String
-    + {static} JOB_MANAGER_INSTANCE : JobManager
-    + {static} LINKING_MODULE_INSTANCE : LinkingModule
-  }
-  class ContextListener {
-    + contextInitialized(event : ServletContextEvent)
-    + contextDestroyed(event : ServletContextEvent)
-    - registerServices(jobManager: JobManager)
-  }
-  ContextListener --> Context : initialization
-  ServletContextListener <|.. ContextListener
-
-  class InputValidator {
-    + validate(serviceName: String, input: JSONObject) : JSONValidationReport
-  }
-
-  package servlets {
-      class ServiceServlet {
-        # doPost() : void
-        # doPut() : void
-      }
-      HttpServlet <|-- ServiceServlet
-
-      class JobServlet {
-        # doGet() : void
-        # doDelete() : void
-      }
-      HttpServlet <|-- JobServlet
-
-      class InfoServlet {
-        # doGet() : void
-      }
-      HttpServlet <|-- InfoServlet
-
-      class StatusServlet {
-        # doGet() : void
-      }
-      HttpServlet <|-- StatusServlet
-  }
-
-
-  package jobs {
-    enum State {
-      PENDING
-          IN_PROGRESS
-        DONE
-        CANCELLED
-          FAIL
-    }
-    interface JobManager {
-      + register(String serviceName, Service service) : boolean
-      + getRegisteredServices() : Set<String>
-      + get(id: int) : JobExecution
-      + get(hexaname: String) : JobExecution
-      + getOrCreate(serviceName: String, input: String) : JobExecution
-      + deleteJob() : void
-      + listJobExecution() : Collection<JobExecution>
-      + getPathToJobStatus(id: int) : String
-      + getPathToResult(id: int) : String
-      + getPathToInput(id: int) : String
-      + cacheRecovery() : void
-      + close() : void
-      + {static} filenameFromId(jobId: int) : String
-      + {static} idFromFilename(filename: String) : int
-    }
-    interface Job {
-      + getServiceName() : String
-      + getInput() : String
-    }
-    interface JobExecution {
-      + getId() : int
-      + getState() : State
-      + getJob() : Job
-      + getErrorMessage() : String
-    }
-    interface Service {
-      + exec(input: String) : String
-      + close() : void
-    }
-
-    JobManager --> JobExecution : create & execute
-    JobManager o-- "0..n" JobExecution
-    JobManager o-- "0..n" Service
-
-    JobExecution o-- "1" Job
-    JobExecution o- "1" State
-    Job o- "1" Service
-
-
-    package services {
-      class DiagnosticService
-      Service <|.. DiagnosticService
-      class LinkService
-      Service <|.. LinkService
-      class CompleteService
-      Service <|.. CompleteService
-      class ClusterService
-      Service <|.. ClusterService
-    }
-
-    ServiceServlet --> JobManager : call getOrCreate
-    ServiceServlet --> InputValidator : call
-    JobServlet --> JobManager : call get / deleteJob
-  }
-}
-''' FIX
-Context .[#white]. InputValidator
-ContextListener .[#white]r. ServiceServlet
-```
-
-[./fig/ws-archi.pdf](./fig/ws-archi.pdf)
+![Architecture des Web Services](https://raw.githubusercontent.com/abes-esr/sudoqual-framework/develop/documentation/images/image-052.png)
 
 ### Paramétrage du module
 
@@ -6281,3 +5931,5 @@ d'exécutions de "jobs" simultanées.
     (`role(Source, "author")`)… Ou encore `pubDate(RC1, RC2, 7)` qui
     pourrait être vrai si et seulement si les dates de publications des
     deux RC sont distantes d'au plus 7 ans.
+
+TODO manque 10 - Vocabulaire => peut-on faire des renvois ?
