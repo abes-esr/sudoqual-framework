@@ -101,6 +101,11 @@ spécifiques de différentes configurations de SudoQual pour répondre aux
 cas d'utilisation exprimés. Cette section est un extrait du document
 « SudoQual - cas d’utilisation ».*
 
+**Vocabulaire utilisé à l'Abes : référence contextuelle (RC) et référence d'autorité (RA)**
+Pour comprendre les explications suivantes, il faut connaître la notion de RC et de RA.
+- Une **RA** ou référence d’autorité est une référence d'entité dans un référentiel (par exemple une base d'autorité dans le monde de la description bibliographique).
+- Une **RC** ou référence contextuelle est une référence d'entité dans le contexte particulier d'une ressource documentaire.
+
 ## Diagnostic/réparation d'une base documentaire
 
 ### Diagnostic des liens RC-RA pour une appellation
