@@ -94,11 +94,12 @@ nous nous intéresserons à des références d'entités de type :
 
 *Différents cas d'utilisation décrits par l'Abes ont orientés la conception du framework SudoQual. 
 Cette section les explicite avec un point de vue métier. 
-Ils sont spécifiques aux problèmes de liage rencontrés par l'Abes et ses partenaires et constituent des exemples qu'il nous a semblé intéressant de présenter ici. Chaque utilisateur du framework SudoQual pourra définir ses propres cas d'utilisation. 
+Ils sont spécifiques aux problèmes de liage rencontrés par l'Abes et ses partenaires et constituent des exemples qu'il nous a semblé intéressant de présenter ici.   Chaque utilisateur du framework SudoQual pourra définir ses propres cas d'utilisation.   
 Ils peuvent nécessiter le recours à des briques
 logicielles externes à SudoQual ou l'implémentation d'enchaînements
 spécifiques de différentes configurations de SudoQual pour répondre aux
-cas d'utilisation exprimés. Cette section est un extrait du document
+cas d'utilisation exprimés.  
+Cette section est un extrait du document
 « SudoQual - cas d’utilisation ».*
 
 **Vocabulaire utilisé à l'Abes : référence contextuelle (RC) et référence d'autorité (RA)**  
