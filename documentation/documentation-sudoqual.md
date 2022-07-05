@@ -90,7 +90,7 @@ nous nous intéresserons à des références d'entités de type :
 -   Chein Michel, Leclère Michel and Nicolas Yann. “SudocAD: A
     Knowledge-Based System for the Author Linkage Problem.” KSE (2013).
 
-# Expression du besoin - Cas d'utilisation
+# Exemple de cas d'utilisation par l'Abes et ses partenaires
 
 *Différents cas d'utilisation décrits par l'Abes ont orientés la conception du framework SudoQual. 
 Cette section les explicite avec un point de vue métier. 
