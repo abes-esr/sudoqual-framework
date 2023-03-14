@@ -2360,10 +2360,10 @@ une JVM \>= 9)*.
 2.  « Git » -\> « Projects from Git » (ne pas sélectionner « Projects
     from Git (with smart import) ») ;
 3.  « Clone URI » ;
-4.  remplir le champs URI avec l'URL suivante
-5.  <https://github.com/abes-esr/qualinka-sudoc.git> (ou celle d'un autre
+4.  remplir le champs URI avec l'URL suivante 
+5.  <https://git.abes.fr/depots/sudoqualsudoc.git> (ou celle d'un autre
     projet QualinKa) ;
-5.  Saisir votre identifiant/mot de passe GitHub (pas obligatoire) ;
+5.  Saisir votre identifiant/mot de passe Abes;
 6.  Cliquez « Next \> » ;
 7.  Sélectionner seulement la branche "develop"
 8.  Cliquez « Next \> » 
