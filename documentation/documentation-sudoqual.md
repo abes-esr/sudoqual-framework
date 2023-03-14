@@ -2361,13 +2361,15 @@ une JVM \>= 9)*.
     from Git (with smart import) ») ;
 3.  « Clone URI » ;
 4.  remplir le champs URI avec l'URL suivante
-    <https://git.abes.fr/depots/sudoqualsudoc.git> (ou celle d'un autre
+5.  <https://github.com/abes-esr/qualinka-sudoc.git> (ou celle d'un autre
     projet QualinKa) ;
-5.  Saisir votre identifiant/mot de passe Abes ;
+5.  Saisir votre identifiant/mot de passe GitHub (pas obligatoire) ;
 6.  Cliquez « Next \> » ;
 7.  Sélectionner seulement la branche "develop"
-8.  Sélectionner « import existing eclipse projects »
-9.  Cliquez « Next \> » puis « Finish ».
+8.  Cliquez « Next \> » 
+9. Choisir un répertoire pour stocker le code récupéré, exemple : C:\git\qualinka-sudoc
+10. Sélectionner « import existing eclipse projects » 
+11. Cliquez sur « Finish ».
 
 À ce stade vous devriez voir :
 
