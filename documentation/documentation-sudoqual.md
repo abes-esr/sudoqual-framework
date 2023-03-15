@@ -2291,9 +2291,9 @@ débogage des configurations du framework SudoQual.
     -   configurer Eclipse :
         -   Eclipse doit s'éxécuter sur une JVM (Java Virtual Machine)
             \>= 9 (*Testé avec Java 12*), si nécessaire ajouter une
-            ligne :
-            -vm
-            \<path_to_jvm_dir\>/bin/server/jvm.dll
+            ligne :  
+            -vm  
+            \<path_to_jvm_dir\>/bin/server/jvm.dll  
             au début du fichier eclipse.ini
         -   Vérifier qu'une jvm \>= 11 soit connue d'Eclipse
             1.  *Window -\> Préférences -\> Java -\> Installed JREs*
