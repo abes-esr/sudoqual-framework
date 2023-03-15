@@ -2284,15 +2284,17 @@ débogage des configurations du framework SudoQual.
 -   **Java 11 ou supérieur** (*Testé avec Java 12*)
 -   **Eclipse 4 ou supérieur**
     -   installer Eclipse :
-        1.  aller sur <https://www.eclipse.org/downloads/>
+        1.  Eclipse en version 2019, par exemple : https://www.eclipse.org/downloads/packages/release/2019-09/r
         2.  cliquer sur Télécharger
         3.  Lors de l'installation sélectionner « Eclipse IDE for Java
             Developers »
     -   configurer Eclipse :
         -   Eclipse doit s'éxécuter sur une JVM (Java Virtual Machine)
             \>= 9 (*Testé avec Java 12*), si nécessaire ajouter une
-            ligne "-vm \<path_to_jvm_dir\>/bin/server/jvm.dll" au début
-            du fichier eclipse.ini
+            ligne :
+            -vm
+            \<path_to_jvm_dir\>/bin/server/jvm.dll
+            au début du fichier eclipse.ini
         -   Vérifier qu'une jvm \>= 11 soit connue d'Eclipse
             1.  *Window -\> Préférences -\> Java -\> Installed JREs*
             2.  Si ce n'est pas le cas :
@@ -2321,12 +2323,13 @@ Software…" :
 1.  Cliquer sur « Add… » ;
 2.  Cliquer sur « Local… » ;
 3.  Sélectionner le répertoire «
-    P:/Developpement/Eclipse/plugins/Qualinka » ;
+    P:/Developpement/Eclipse/plugins/QualinkaOld » ;
 4.  Donnez lui un nom, par exemple : « Qualinka » ;
 5.  Cliquez sur « Add » ;
-6.  Cochez « QualinkaPlugin », puis cliquez sur « Next \> » ;
-7.  Suivez les instructions (cliquez sur « Next \> ») ;
-8.  Cochez « I accept the terms of the license agreement », puis «
+6.  Cochez « QualinkaPlugin », et sélectionner la version 1.7.1 du plugin
+7.  Cliquez sur « Next \> » ;
+8.  Suivez les instructions (cliquez sur « Next \> ») ;
+9.  Cochez « I accept the terms of the license agreement », puis «
     Finish » ;
 9.  Ignorez le warning « you are installing software that contains
     unsigned content… » en cliquant sur « Install anyway » ;
